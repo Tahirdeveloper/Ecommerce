@@ -10,4 +10,8 @@ class CategoryController extends Controller
     {
         return view('Admin/category');
     }
+    public function manage_category()
+    {
+        return view('Admin/manage_category');
+    }
 }

@@ -21,6 +21,14 @@
     <!-- Bootstrap CSS-->
     <link href="{{asset('Admin_styles/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
     <!-- Vendor CSS-->
+    <!-- <link href="{{asset('Admin_styles/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('Admin_styles/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('Admin_styles/vendor/wow/animate.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('Admin_styles/vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('Admin_styles/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('Admin_styles/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('Admin_styles/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all"> -->
+
     <link href="{{asset('Admin_styles/vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="{{asset('Admin_styles/css/theme.css')}}" rel="stylesheet" media="all">
@@ -81,6 +89,10 @@
                             <a href="category">
                                 <i class="fas fa-tachometer-alt"></i>Categories</a>
                         </li>
+                        <li>
+                            <a href="manage_category">
+                                <i class="fas fa-tachometer-alt"></i>Manage Categories</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -130,13 +142,16 @@
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                @yield('main_section')
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        @yield('main_section')
+                    </div>
+                    <!-- END MAIN CONTENT-->
+                </div>
+                <!-- END PAGE CONTAINER-->
             </div>
-            <!-- END MAIN CONTENT-->
         </div>
-        <!-- END PAGE CONTAINER-->
     </div>
-
     <!-- Jquery JS-->
     <script src="{{asset('Admin_styles/vendor/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap JS-->
