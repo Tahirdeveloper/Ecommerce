@@ -15,13 +15,13 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Admin/login');
 });
-Route::get('/admin', [AdminController::class, 'index'])->name('index');
-// Route::post('/admin/auth', [AdminController::class, 'auth'])->name('admin.login');
+Route::get('/login', [AdminController::class, 'index'])->name('index');
+Route::get('/admin/auth', [AdminController::class, 'auth'])->name('Admin.dashboard');
 
 
 Route::group(['middleware' => 'admin_auth'], function () {
 Route::post('/admin/dashboard', [AdminController::class, 'auth'])->name('Admin.dashboard');
-    // Route::get('/admin/category', [AdminController::class, 'index'])->name('admin.category');
+Route::get('/admin/category', [AdminController::class, 'index'])->name('admin.category');
 });
