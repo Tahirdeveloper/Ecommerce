@@ -1,11 +1,12 @@
 @extends('Admin/layout')
 
 @section('main_section')
-<div class="mb-5">
+<div class="mb-3 text-center">
     <h3>Manage Categories</h3>
 </div>
+<a href="{{url('admin/category')}}"><button class="btn btn-success my-2">Back</button></a> 
 <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-9" style="margin-left:125px">
         <div class="card">
             <div class="card-header">Credit Card</div>
             <div class="card-body">

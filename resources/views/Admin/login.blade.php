@@ -41,22 +41,31 @@
                             {{session('error')}}
                         </div>
                         @endif
+                        <p class="alert alert-success">
+                                        @if(session()->has('logout'))
+                                        {{session()->get('logout')}}
+                                        @endif
+                                    </p>
                         <div class="login-form">
-                            <form action="{{route('Admin.dashboard')}}" method="post">
+                            <form action="{{route('Admin.auth')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
-                                    <div class="alert alert-danger">
-                                        @error('email') {{$message}} @enderror
-                                    </div>
+                                    <small class="text-danger">
+                                        @if(session()->has('errorEmail'))
+                                        {{session()->get('errorEmail')}}
+                                        @endif
+                                    </small>
                                 </div>
                                 <div class="form-group m-b-20">
                                     <label>Password</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
-                                    <div class="alert alert-danger">
-                                        @error('password') {{$message}} @enderror
-                                    </div>
+                                    <small class="text-danger">
+                                        @if(session()->has('errorPassword'))
+                                        {{session()->get('errorPassword')}}
+                                        @endif
+                                    </small>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
                             </form>

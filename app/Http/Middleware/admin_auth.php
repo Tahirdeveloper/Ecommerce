@@ -18,6 +18,7 @@ class admin_auth
     {
         if($request->session()->has('ADMIN_LOGIN'))
         {
+            session()->put('success','Already Loged in');
 
         }
         else{

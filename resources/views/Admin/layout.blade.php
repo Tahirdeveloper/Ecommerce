@@ -57,11 +57,11 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="dashboard">
+                            <a href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="category">
+                        <li>
+                            <a href="category">
                                 <i class="fas fa-tachometer-alt"></i>Categories</a>
                         </li>
 
@@ -82,17 +82,14 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a href="dashboard">
+                            <a href="{{url('admin/dashboard')}}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="category">
+                            <a href="{{url('admin/category')}}">
                                 <i class="fas fa-tachometer-alt"></i>Categories</a>
                         </li>
-                        <li>
-                            <a href="manage_category">
-                                <i class="fas fa-tachometer-alt"></i>Manage Categories</a>
-                        </li>
+
                     </ul>
                 </nav>
             </div>
@@ -127,7 +124,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -160,17 +157,30 @@
     <!-- Vendor JS -->
     <script src="{{asset('Admin_styles/vendor/slick/slick.min.js')}}"> </script>
     <script src="{{asset('Admin_styles/vendor/wow/wow.min.js')}}"></script>
-    <script src="{{asset('Admin_styles/vendor/animsition/animsition.min.js')}}"></script>
-    <script src="{{asset('Admin_styles/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
+    <script>
+        let btn = document.getElementsByClassName('account-item');
+        console.log(btn);
+        btn.onclick = function() {
+            this.classList.add("show-dropdown");
+            console.log("class added");
+        };
     </script>
+    <!--  <script src="{{asset('Admin_styles/vendor/animsition/animsition.min.js')}}"></script>
+     <script src="{{asset('Admin_styles/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
+    </script>-->
     <script src="{{asset('Admin_styles/vendor/counter-up/jquery.waypoints.min.js')}}"></script>
     <script src="{{asset('Admin_styles/vendor/counter-up/jquery.counterup.min.js')}}">
     </script>
-    <script src="{{asset('Admin_styles/vendor/circle-progress/circle-progress.min.js')}}"></script>
+    <script>
+        $('.account-item').on('click', function() {
+            $(this).toggleClass('show-dropdown');
+        })
+    </script>
+    <!-- <script src="{{asset('Admin_styles/vendor/circle-progress/circle-progress.min.js')}}"></script>
     <script src="{{asset('Admin_styles/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
     <script src="{{asset('Admin_styles/vendor/chartjs/Chart.bundle.min.js')}}"></script>
     <script src="{{asset('Admin_styles/vendor/select2/select2.min.js')}}">
-    </script>
+    </script> -->
 
     <!-- Main JS-->
     <script src="{{asset('Admin_styles/js/main.js')}}"></script>

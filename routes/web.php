@@ -16,16 +16,23 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('Admin/login');
-});
-Route::get('/login', [AdminController::class, 'index'])->name('index');
-Route::get('/admin/auth', [AdminController::class, 'auth'])->name('Admin.dashboard');
-
+// Route::get('/', function () {
+//     return view('Admin/login');
+// });
+Route::get('/', [AdminController::class, 'index'])->name('index');
+Route::post('/admin/auth', [AdminController::class, 'auth'])->name('Admin.auth');
 
 Route::group(['middleware' => 'admin_auth'], function () {
-Route::post('/admin/dashboard', [AdminController::class, 'auth'])->name('Admin.dashboard');
-Route::get('/admin/category', [CategoryController::class, 'index'])->name('Admin.category');
-Route::get('/admin/manage_category', [CategoryController::class, 'manage_category'])->name('Admin.manage_category');
+
+Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('Admin.dashboard');
+Route::get('admin/category', [CategoryController::class, 'category'])->name('Admin.category');
+Route::get('admin/manage_category', [CategoryController::class, 'manage_category'])->name('Admin.manage_category');
+Route::get('admin/logout', function(){
+    session()->forget('ADMIN_LOGIN');
+    session()->forget('ADMIN_ID');
+    session()->put("logout","you logged out from your account");
+    return redirect('/');
+
+});
 
 });

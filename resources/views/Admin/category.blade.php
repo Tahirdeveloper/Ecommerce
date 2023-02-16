@@ -2,8 +2,9 @@
 
 @section('main_section')
 <div class="mb-5">
-    <h3>Categories</h3>
-    <div class="row my-4">
+    <h2>Categories</h2>
+   <a href="{{url('admin/manage_category')}}"><button class="btn btn-success my-2">+Add categroy</button></a> 
+    <div class="row my-2">
     <div class="col-lg-12">
         <div class="table-responsive table--no-card m-b-30">
             <table class="table table-borderless table-striped table-earning">
