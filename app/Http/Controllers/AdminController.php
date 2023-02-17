@@ -47,4 +47,12 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    // public function update()
+    // {
+    //     $r=Admin::find(1);
+    //     $password='123';
+    //     $r->password=Hash::make($password);
+    //     $r->save();
+    // }
 }

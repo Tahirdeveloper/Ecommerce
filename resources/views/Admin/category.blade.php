@@ -7,6 +7,11 @@
         {{session()->get('alert')}}
     </p>
     @endif
+    @if(session()->has('delete'))
+    <p class="alert alert-success">
+        {{session()->get('delete')}}
+    </p>
+    @endif
     <h2>Categories</h2>
     <a href="{{url('admin/category/manage_category')}}"><button class="btn btn-success my-2">+Add categroy</button></a>
     <div class="row my-2">
