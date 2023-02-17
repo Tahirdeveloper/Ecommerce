@@ -7,11 +7,11 @@
         {{session()->get('alert')}}
     </p>
     @endif
-    @if(session()->has('delete'))
+    <!-- @if(session()->has('alert'))
     <p class="alert alert-success">
-        {{session()->get('delete')}}
+        {{session()->get('alert')}}
     </p>
-    @endif
+    @endif -->
     <h2>Categories</h2>
     <a href="{{url('admin/category/manage_category')}}"><button class="btn btn-success my-2">+Add categroy</button></a>
     <div class="row my-2">
@@ -34,7 +34,7 @@
                             <td>{{$category->category_slug}}</td>
                             <td>
                                 <a href="{{route('admin.category',['id'=>$category->id])}}"><button class="btn btn-danger">Delete</button></a>
-                                <a href="{{route('admin.category',['id'=>$category->id])}}"><button class="btn btn-primary">Edit</button></a>
+                                <a href="{{route('admin.manage_category',['id'=>$category->id])}}"><button class="btn btn-primary">Edit</button></a>
                             </td>
                         </tr>
                         @endforeach

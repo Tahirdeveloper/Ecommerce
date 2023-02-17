@@ -22,7 +22,7 @@ class admin_auth
 
         }
         else{
-            session()->put('error','Login required!');
+            session()->flash('error','Login required!');
             return redirect('admin');
         }
         return $next($request);

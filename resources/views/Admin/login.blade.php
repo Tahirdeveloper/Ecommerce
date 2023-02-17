@@ -41,31 +41,31 @@
                             {{session('error')}}
                         </div>
                         @endif
+                        @if(session()->has('logout'))
                         <p class="alert alert-success">
-                                        @if(session()->has('logout'))
-                                        {{session()->get('logout')}}
-                                        @endif
-                                    </p>
+                            {{session()->get('logout')}}
+                        </p>
+                        @endif
                         <div class="login-form">
                             <form action="{{route('Admin.auth')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    @if(session()->has('errorEmail'))
                                     <small class="text-danger">
-                                        @if(session()->has('errorEmail'))
                                         {{session()->get('errorEmail')}}
-                                        @endif
                                     </small>
+                                    @endif
                                 </div>
                                 <div class="form-group m-b-20">
                                     <label>Password</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    @if(session()->has('errorPassword'))
                                     <small class="text-danger">
-                                        @if(session()->has('errorPassword'))
                                         {{session()->get('errorPassword')}}
-                                        @endif
                                     </small>
+                                    @endif
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
                             </form>
