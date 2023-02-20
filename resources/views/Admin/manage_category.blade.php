@@ -1,5 +1,5 @@
 @extends('Admin/layout')
-
+@section('page_title','Managetitle')
 @section('main_section')
 <div class="mb-3 text-center">
     @if ($errors->any())
@@ -13,7 +13,7 @@
     @endif
     <h3>Manage Categories</h3>
 </div>
-<a href="{{url('admin/category')}}"><button class="btn btn-success my-2 mx-5">Back</button></a>
+<a href="{{url('admin/category')}}" class="btn btn-info my-2 " style="margin-left: 125px;">Back</a>
 <div class="row">
     <div class="col-lg-9" style="margin-left:125px">
         <div class="card">

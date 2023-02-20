@@ -14,7 +14,6 @@ class CategoryController extends Controller
     public function manage_category($id = "")
     {
         $result = [];
-        // if () {
             $array = Category::where(['id' => $id])->get();
             if ($id > 0) {
                 $result['data']['category_name'] = $array['0']->category_name;
@@ -25,8 +24,6 @@ class CategoryController extends Controller
                 $result['data']['category_slug'] = "";
                 $result['data']['id'] = "";
             }
-            
-        // }
         return view('admin.manage_category', compact('result'));
     }
     public function insert_category(Request $request)

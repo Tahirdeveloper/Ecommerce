@@ -10,8 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Admin Dashboard</title>
-
+    <title> @yield('page_title')</title>
     <!-- Fontfaces CSS-->
     <link href="{{asset('Admin_styles/css/font-face.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('Admin_styles/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
