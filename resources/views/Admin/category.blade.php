@@ -2,9 +2,14 @@
 
 @section('main_section')
 <div class="mb-5">
-@if(session()->has('alert'))
+    @if(session()->has('alert'))
     <p class="alert alert-success">
         {{session()->get('alert')}}
+    </p>
+    @endif
+    @if(session()->has('delete'))
+    <p class="alert alert-success">
+        {{session()->get('delete')}}
     </p>
     @endif
     <!-- @if(session()->has('alert'))
@@ -12,7 +17,7 @@
         {{session()->get('alert')}}
     </p>
     @endif -->
-    <h2>Categories</h2>
+    <h3 class="mb-4">Categories</h3>
     <a href="{{url('admin/category/manage_category')}}"><button class="btn btn-success my-2">+Add categroy</button></a>
     <div class="row my-2">
         <div class="col-lg-12">
@@ -33,8 +38,9 @@
                             <td>{{$category->category_name}}</td>
                             <td>{{$category->category_slug}}</td>
                             <td>
-                                <a href="{{route('admin.category',['id'=>$category->id])}}"><button class="btn btn-danger">Delete</button></a>
-                                <a href="{{route('admin.manage_category',['id'=>$category->id])}}"><button class="btn btn-primary">Edit</button></a>
+                                <a href="{{route('admin.category.delete',['id'=>$category->id])}}" class="btn btn-danger">Delete</a>
+                                <a href="{{route('admin.category.manage_category',['id'=>$category->id])}}" class="btn btn-primary">Edit</a>
+
                             </td>
                         </tr>
                         @endforeach

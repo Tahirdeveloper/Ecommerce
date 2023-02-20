@@ -13,9 +13,10 @@ class CategoryController extends Controller
     }
     public function manage_category($id = "")
     {
-        if ($id > 0) {
+        $result = [];
+        // if () {
             $array = Category::where(['id' => $id])->get();
-            if (!is_null($array)) {
+            if ($id > 0) {
                 $result['data']['category_name'] = $array['0']->category_name;
                 $result['data']['category_slug'] = $array['0']->category_slug;
                 $result['data']['id'] = $array['0']->id;
@@ -24,7 +25,8 @@ class CategoryController extends Controller
                 $result['data']['category_slug'] = "";
                 $result['data']['id'] = "";
             }
-        }
+            
+        // }
         return view('admin.manage_category', compact('result'));
     }
     public function insert_category(Request $request)
@@ -41,7 +43,7 @@ class CategoryController extends Controller
             // If validation fails, redirect back with the errors
             return redirect()->back()->withErrors($validator);
         }
-        $id=$request->post('id');
+        $id = $request->post('id');
         if ($id > 0) {
             $result = Category::find($id);
         } else {
@@ -68,11 +70,13 @@ class CategoryController extends Controller
         if (!is_null($category)) {
             if ($category->delete()) {
                 session()->flash('delete', 'category deleted successfully!');
+                return redirect('admin/category');
             } else {
                 session()->flash('delete', 'category not deleted!');
+                return redirect('admin/category');
             }
         }
-        return view('admin/category');
+        return redirect('admin/category');
     }
 
     // public function edit_category(Request $request, $id)

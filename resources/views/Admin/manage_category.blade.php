@@ -18,7 +18,7 @@
     <div class="col-lg-9" style="margin-left:125px">
         <div class="card">
             <div class="card-body">
-                <form action="{{route('admin.category')}}" method="post" novalidate="novalidate">
+                <form action="{{route('admin.category.view')}}" method="post" novalidate="novalidate">
                     @csrf
                     <div class="form-group">
                         <label for="cc-payment" class="control-label mb-1">Category Name</label>

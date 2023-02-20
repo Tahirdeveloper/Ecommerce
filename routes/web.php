@@ -24,19 +24,17 @@ Route::post('/admin/auth', [AdminController::class, 'auth'])->name('Admin.auth')
 
 Route::group(['middleware' => 'admin_auth'], function () {
 
-Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('Admin.dashboard');
-Route::get('admin/category', [CategoryController::class, 'category'])->name('Admin.category');
+Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('admin/category', [CategoryController::class, 'category'])->name('admin.category');
 
 Route::get('admin/category/manage_category', [CategoryController::class, 'manage_category'])->name('admin.category.manage_category');
-Route::get('admin/manage_category/{id}', [CategoryController::class, 'manage_category'])->name('admin.manage_category');
+Route::get('admin/category/manage_category/{id}', [CategoryController::class, 'manage_category'])->name('admin.category.manage_category');
+Route::get('admin/category/delete/{id}', [CategoryController::class, 'delete_category'])->name('admin.category.delete');
 
-Route::post('admin/category/manage_category', [CategoryController::class, 'insert_category'])->name('admin.category');
 Route::get('admin/category', [CategoryController::class, 'fetch_category'])->name('admin.category');
+Route::post('admin/category/view', [CategoryController::class, 'insert_category'])->name('admin.category.view');
 // Route::get('admin/manage_category/edit/{id}', [CategoryController::class, 'edit_category'])->name('admin.manage_category');;
 
-
-
-// Route::get('admin/category/{id}', [CategoryController::class, 'delete_category'])->name('admin.category');
 Route::get('admin/logout', function(){
     session()->forget('ADMIN_LOGIN');
     if(session()->forget('ADMIN_ID')){
