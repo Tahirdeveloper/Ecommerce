@@ -63,6 +63,10 @@
                             <a href="category">
                                 <i class="fas fa-tachometer-alt"></i>Categories</a>
                         </li>
+                        <li>
+                            <a href="coupons">
+                                <i class="fas fa-tachometer-alt"></i>Coupons</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -88,7 +92,10 @@
                             <a href="{{url('admin/category')}}">
                                 <i class="fas fa-tachometer-alt"></i>Categories</a>
                         </li>
-
+                        <li>
+                            <a href="{{url('admin/coupons')}}">
+                                <i class="fas fa-tachometer-alt"></i>Coupons</a>
+                        </li>
                     </ul>
                 </nav>
             </div>

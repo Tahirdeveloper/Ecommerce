@@ -32,7 +32,7 @@ class CategoryController extends Controller
             $request->all(),
             [
                 'category_name' => 'required|max:255',
-                'category_slug' => 'required|unique:categories,category_slug'
+                'category_slug' => 'required|unique:categories,category_slug,'.$request->post('id').',id'
             ]
         );
 
