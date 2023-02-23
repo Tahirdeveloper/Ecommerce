@@ -56,16 +56,16 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a href="dashboard">
+                            <a href="admin/dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="category">
-                                <i class="fas fa-tachometer-alt"></i>Categories</a>
+                            <a href="admin/category">
+                            <i class="fas fa-th-large"></i>Categories</a>
                         </li>
                         <li>
-                            <a href="coupons">
-                                <i class="fas fa-tachometer-alt"></i>Coupons</a>
+                            <a href="admin/coupon">
+                            <i class="fas fa-tags"></i>Coupons</a>
                         </li>
 
                     </ul>
@@ -90,11 +90,11 @@
                         </li>
                         <li>
                             <a href="{{url('admin/category')}}">
-                                <i class="fas fa-tachometer-alt"></i>Categories</a>
+                            <i class="fas fa-th-large"></i>Categories</a>
                         </li>
                         <li>
-                            <a href="{{url('admin/coupons')}}">
-                                <i class="fas fa-tachometer-alt"></i>Coupons</a>
+                            <a href="{{url('admin/coupon')}}">
+                            <i class="fas fa-tags"></i></i>Coupons</a>
                         </li>
                     </ul>
                 </nav>

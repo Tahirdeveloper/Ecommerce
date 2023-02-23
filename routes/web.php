@@ -21,15 +21,18 @@ use App\Http\Controllers\CouponController;
 // Route::get('/', function () {
 //     return view('Admin/login');
 // });
+// Route::get('admin/update',[AdminController::class,'update']);
 Route::get('/', [AdminController::class, 'index'])->name('index');
 Route::post('/admin/auth', [AdminController::class, 'auth'])->name('Admin.auth');
+// Route::get('/admin/update', [AdminController::class, 'update'])->name('Admin.update');
 Route::group(['middleware' => 'admin_auth'], function () {
-    Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     // =================== Category Controller ================================
     Route::get('admin/category', [CategoryController::class, 'category'])->name('admin.category');
     Route::get('admin/category/manage_category', [CategoryController::class, 'manage_category'])->name('admin.category.manage_category');
     Route::get('admin/category/manage_category/{id}', [CategoryController::class, 'manage_category'])->name('admin.category.manage_category');
     Route::get('admin/category/delete/{id}', [CategoryController::class, 'delete_category'])->name('admin.category.delete');
+    Route::get('admin/category/status/{status}/{id}', [CategoryController::class, 'status'])->name('admin.category.status');
     Route::get('admin/category', [CategoryController::class, 'fetch_category'])->name('admin.category');
     Route::post('admin/category/view', [CategoryController::class, 'insert_category'])->name('admin.category.view');
     Route::get('admin/logout', function () {
@@ -40,5 +43,13 @@ Route::group(['middleware' => 'admin_auth'], function () {
         return redirect('/');
     });
     // =================== Coupons Controller ================================
-    Route::get('admin/coupons',[CouponController::class,'index']);
+    // Route::get('admin/coupons',[CouponController::class,'index']);
+    Route::get('admin/coupon', [CouponController::class, 'coupon'])->name('admin.coupon');
+    Route::get('admin/coupon/manage_coupon', [CouponController::class, 'manage_coupon'])->name('admin.coupon.manage_coupon');
+    Route::get('admin/coupon/manage_coupon/{id}', [CouponController::class, 'manage_coupon'])->name('admin.coupon.manage_coupon');
+    Route::get('admin/coupon/delete/{id}', [CouponController::class, 'delete_coupon'])->name('admin.coupon.delete');
+    Route::get('admin/coupon', [CouponController::class, 'fetch_coupon'])->name('admin.coupon');
+    Route::post('admin/coupon/view', [CouponController::class, 'insert_coupon'])->name('admin.coupon.view');
+    Route::get('admin/coupon/status/{status}/{id}', [CouponController::class, 'coupon_status'])->name('admin.coupon.status');
+
 });

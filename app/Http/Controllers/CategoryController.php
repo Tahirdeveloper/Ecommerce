@@ -14,16 +14,18 @@ class CategoryController extends Controller
     public function manage_category($id = "")
     {
         $result = [];
-            $array = Category::where(['id' => $id])->get();
-            if ($id > 0) {
-                $result['data']['category_name'] = $array['0']->category_name;
-                $result['data']['category_slug'] = $array['0']->category_slug;
-                $result['data']['id'] = $array['0']->id;
-            } else {
-                $result['data']['category_name'] = "";
-                $result['data']['category_slug'] = "";
-                $result['data']['id'] = "";
-            }
+        $array = Category::where(['id' => $id])->get();
+        if ($id > 0) {
+            $result['data']['category_name'] = $array['0']->category_name;
+            $result['data']['category_slug'] = $array['0']->category_slug;
+            $result['data']['status'] = 1;
+
+            $result['data']['id'] = $array['0']->id;
+        } else {
+            $result['data']['category_name'] = "";
+            $result['data']['category_slug'] = "";
+            $result['data']['id'] = "";
+        }
         return view('admin.manage_category', compact('result'));
     }
     public function insert_category(Request $request)
@@ -32,7 +34,7 @@ class CategoryController extends Controller
             $request->all(),
             [
                 'category_name' => 'required|max:255',
-                'category_slug' => 'required|unique:categories,category_slug,'.$request->post('id').',id'
+                'category_slug' => 'required|unique:categories,category_slug,' . $request->post('id') . ',id'
             ]
         );
 
@@ -75,21 +77,15 @@ class CategoryController extends Controller
         }
         return redirect('admin/category');
     }
-
-    // public function edit_category(Request $request, $id)
-    // {
-    //     $category = Category::find($id);
-    //     if (!is_null($category)) {
-    //         if ($request->isMethod('post')) {
-    //             $category->category_name = $request->post('category_name');
-    //             $category->category_slug = $request->post('category_slug');
-    //             if ($category->save()) {
-    //                 session()->flash('alert', 'Category updated successfully!');
-    //                 return redirect('admin/category');
-    //             }
-    //         }
-    //     }
-
-    //     return view('admin.manage_category', ['category' => $category]);
-    // }
+    public function status($status, $id)
+    {
+        $category = Category::find($id);
+        if (!is_null($category)) {
+            $category->status = $status;
+            $category->save();
+            session()->flash('delete', 'category status updated successfully!');
+            return redirect('admin/category');
+        }
+        return redirect('admin/category');
+    }
 }

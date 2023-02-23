@@ -33,9 +33,13 @@
                             <td>{{$category->category_name}}</td>
                             <td>{{$category->category_slug}}</td>
                             <td>
-                                <a href="{{route('admin.category.delete',['id'=>$category->id])}}" class="btn btn-danger">Delete</a>
                                 <a href="{{route('admin.category.manage_category',['id'=>$category->id])}}" class="btn btn-primary">Edit</a>
-
+                                @if($category->status==1)
+                                <a href="{{ route('admin.category.status', ['status' => 0, 'id' => $category->id]) }}" class="btn btn-success">Active</a>
+                                @elseif($category->status==0)
+                                <a href="{{ route('admin.category.status', ['status' => 1, 'id' => $category->id]) }}" class="btn btn-warning">Deactive</a>
+                                @endif
+                                <a href="{{route('admin.category.delete',['id'=>$category->id])}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach
