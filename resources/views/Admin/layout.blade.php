@@ -67,7 +67,10 @@
                             <a href="admin/coupon">
                             <i class="fas fa-tags"></i>Coupons</a>
                         </li>
-
+                        <li>
+                            <a href="admin/size">
+                            <i class="fas fa-tags"></i>Size</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -95,6 +98,11 @@
                         <li>
                             <a href="{{url('admin/coupon')}}">
                             <i class="fas fa-tags"></i></i>Coupons</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/size')}}">
+                            <i class="fas fa-cube fa-stack"></i>Size</a>
+
                         </li>
                     </ul>
                 </nav>

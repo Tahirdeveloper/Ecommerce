@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
-
-
+use App\Http\Controllers\SizeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +42,6 @@ Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admi
         return redirect('/');
     });
     // =================== Coupons Controller ================================
-    // Route::get('admin/coupons',[CouponController::class,'index']);
     Route::get('admin/coupon', [CouponController::class, 'coupon'])->name('admin.coupon');
     Route::get('admin/coupon/manage_coupon', [CouponController::class, 'manage_coupon'])->name('admin.coupon.manage_coupon');
     Route::get('admin/coupon/manage_coupon/{id}', [CouponController::class, 'manage_coupon'])->name('admin.coupon.manage_coupon');
@@ -51,5 +49,12 @@ Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admi
     Route::get('admin/coupon', [CouponController::class, 'fetch_coupon'])->name('admin.coupon');
     Route::post('admin/coupon/view', [CouponController::class, 'insert_coupon'])->name('admin.coupon.view');
     Route::get('admin/coupon/status/{status}/{id}', [CouponController::class, 'coupon_status'])->name('admin.coupon.status');
-
+// =================== Size Controller ================================
+Route::get('admin/size', [SizeController::class, 'size'])->name('admin.size');
+Route::get('admin/size/manage_size', [SizeController::class, 'manage_size'])->name('admin.size.manage_size');
+Route::get('admin/size/manage_size/{id}', [SizeController::class, 'manage_size'])->name('admin.size.manage_size');
+Route::get('admin/size/delete/{id}', [SizeController::class, 'delete_size'])->name('admin.size.delete');
+Route::get('admin/size', [SizeController::class, 'fetch_size'])->name('admin.size');
+Route::post('admin/size/view', [SizeController::class, 'insert_size'])->name('admin.size.view');
+Route::get('admin/size/status/{status}/{id}', [SizeController::class, 'size_status'])->name('admin.size.status');
 });
