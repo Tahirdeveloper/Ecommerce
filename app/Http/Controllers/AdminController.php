@@ -18,7 +18,7 @@ class AdminController extends Controller
         if ($request->session()->has('ADMIN_LOGIN')) {
             return redirect('admin/dashboard');
         } else {
-
+            session()->put('login_message','You must to login first!');
             return view('Admin/login');
         }
     }

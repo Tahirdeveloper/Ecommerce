@@ -71,6 +71,10 @@
                             <a href="admin/size">
                             <i class="fas fa-tags"></i>Size</a>
                         </li>
+                        <li>
+                            <a href="{{url('admin/product')}}">
+                            <i class="fas fa-cube fa-stack"></i>Products</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -102,7 +106,10 @@
                         <li>
                             <a href="{{url('admin/size')}}">
                             <i class="fas fa-cube fa-stack"></i>Size</a>
-
+                        </li>
+                        <li>
+                            <a href="{{url('admin/product')}}">
+                            <i class="fas fa-cube fa-stack"></i>Products</a>
                         </li>
                     </ul>
                 </nav>

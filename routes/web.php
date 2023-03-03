@@ -5,7 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\SizeController;
-
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,11 +50,20 @@ Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admi
     Route::post('admin/coupon/view', [CouponController::class, 'insert_coupon'])->name('admin.coupon.view');
     Route::get('admin/coupon/status/{status}/{id}', [CouponController::class, 'coupon_status'])->name('admin.coupon.status');
 // =================== Size Controller ================================
-Route::get('admin/size', [SizeController::class, 'size'])->name('admin.size');
-Route::get('admin/size/manage_size', [SizeController::class, 'manage_size'])->name('admin.size.manage_size');
-Route::get('admin/size/manage_size/{id}', [SizeController::class, 'manage_size'])->name('admin.size.manage_size');
-Route::get('admin/size/delete/{id}', [SizeController::class, 'delete_size'])->name('admin.size.delete');
-Route::get('admin/size', [SizeController::class, 'fetch_size'])->name('admin.size');
-Route::post('admin/size/view', [SizeController::class, 'insert_size'])->name('admin.size.view');
-Route::get('admin/size/status/{status}/{id}', [SizeController::class, 'size_status'])->name('admin.size.status');
+    Route::get('admin/size/manage_size', [SizeController::class, 'manage_size'])->name('admin.size.manage_size');
+    Route::get('admin/size', [SizeController::class, 'size'])->name('admin.size');
+    Route::get('admin/size/manage_size/{id}', [SizeController::class, 'manage_size'])->name('admin.size.manage_size');
+    Route::get('admin/size/delete/{id}', [SizeController::class, 'delete_size'])->name('admin.size.delete');
+    Route::get('admin/size', [SizeController::class, 'fetch_size'])->name('admin.size');
+    Route::post('admin/size/view', [SizeController::class, 'insert_size'])->name('admin.size.view');
+    Route::get('admin/size/status/{status}/{id}', [SizeController::class, 'size_status'])->name('admin.size.status');
+    // ======================= Products Routs =========================
+    // Route::get('admin/product', [ProductsController::class, 'product'])->name('admin.product');
+    Route::get('admin/product', [ProductsController::class, 'fetch_product'])->name('admin.product');
+    Route::get('admin/product/manage_product', [ProductsController::class, 'manage_product'])->name('admin.product.manage_product');
+    Route::get('admin/product/manage_product/{id}', [ProductsController::class, 'manage_product'])->name('admin.product.manage_product');
+    Route::get('admin/product/delete/{id}', [ProductsController::class, 'delete_product'])->name('admin.product.delete');
+    Route::get('admin/product/status/{status}/{id}', [ProductsController::class, 'status'])->name('admin.product.status');
+    Route::post('admin/product/view', [ProductsController::class, 'insert_product'])->name('admin.product.view');
+
 });

@@ -36,15 +36,15 @@
                                 <img src="{{asset('Admin_styles/images/icon/logo.png')}}" alt="CoolAdmin">
                             </a>
                         </div>
-                        @if(!session("ADMIN_LOGIN"))
+                        @if(session()->has('login_message'))
                         <div class="alert alert-danger">
-                            {{session('error')}}
+                            {{session('login_message')}}
                         </div>
                         @endif
                         @if(session()->has('logout'))
-                        <p class="alert alert-success">
+                        <div class="alert alert-success">
                             {{session()->get('logout')}}
-                        </p>
+                        </div>
                         @endif
                         <div class="login-form">
                             <form action="{{route('Admin.auth')}}" method="post">
